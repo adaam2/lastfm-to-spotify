@@ -33,5 +33,12 @@ module LastFm
     def user
       client.user
     end
+
+    def client
+      Lastfm.new(
+        ENV.fetch("LAST_FM_API_KEY"),
+        ENV.fetch("LAST_FM_API_SECRET")
+      )
+    end
   end
 end

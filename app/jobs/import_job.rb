@@ -4,7 +4,7 @@ class ImportJob < BaseJob
     "exporter"
   ]
 
-  def perform
+  def perform(user_id)
     importer.call(user)
   end
 

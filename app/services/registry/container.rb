@@ -12,20 +12,20 @@ module Registry
 
     # Subsidiary services
     namespace(:artist) do
-
+      register(:upserter, -> { Artists::Upserter.new })
     end
 
     namespace(:track) do
-      register(:upserter, -> { Track::Upserter.new })
-      register(:batch_upserter, -> { Track::BatchUpserter.new })
+      register(:upserter, -> { Tracks::Upserter.new })
+      register(:batch_upserter, -> { Tracks::BatchUpserter.new })
     end
 
     namespace(:playlist) do
-      register(:creator, -> { Playlist::Creator.new })
+      register(:creator, -> { Playlists::Creator.new })
     end
 
     namespace(:import) do
-      register(:creator, -> { Import::Creator.new })
+      register(:creator, -> { Imports::Creator.new })
     end
 
     namespace(:lastfm) do

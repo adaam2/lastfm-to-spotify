@@ -1,4 +1,4 @@
-module Playlist
+module Playlists
   class Creator
     def call(import)
       # Create the spotify playlist

@@ -9,4 +9,8 @@ class Track < ApplicationRecord
   scope :newest, -> {
     order(created_at: :asc)
   }
+
+  scope :ordered, -> {
+    joins(:artist).order("artists.name asc, tracks.title asc")
+  }
 end

@@ -8,6 +8,7 @@ end
 gem 'rails', '~> 5.1.4'
 gem 'pg', '~> 0.18'
 gem 'puma', '~> 3.7'
+gem 'redis'
 gem 'webpacker'
 gem 'sidekiq'
 gem 'httparty'
@@ -15,6 +16,7 @@ gem 'rollbar'
 gem 'activeadmin', github: 'activeadmin'
 gem 'inherited_resources', github: 'activeadmin/inherited_resources'
 gem 'devise'
+gem 'kaminari'
 
 # Configuration
 gem 'dotenv-rails'
