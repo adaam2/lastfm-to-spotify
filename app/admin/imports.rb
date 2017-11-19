@@ -17,7 +17,9 @@ ActiveAdmin.register Import do
     end
 
     panel "Tracks" do
-      paginated_collection(import.tracks.ordered.page(params[:page]).per(15), download_links: false) do
+      tracks = import.tracks.preload(:artist).page(params[:page]).per(15).ordered
+
+      paginated_collection(tracks, download_links: false) do
         table_for(collection, sortable: false) do
           column :title
           column :artist
