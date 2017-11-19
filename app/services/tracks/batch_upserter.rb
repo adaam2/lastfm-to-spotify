@@ -1,7 +1,8 @@
 module Tracks
   class BatchUpserter
     include Registry::AutoInject[
-      "track.upserter"
+      "track.upserter",
+      "import.deduper"
     ]
 
     def call(import, tracks = [])
@@ -14,7 +15,9 @@ module Tracks
         upserter.call(title, artist)
       end
 
-      import.tracks << upserted_tracks
+      deduped = deduper.call(import, upserted_tracks)
+
+      import.tracks << deduped
       import.save
     end
 

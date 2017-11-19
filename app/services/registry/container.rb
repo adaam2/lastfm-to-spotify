@@ -26,6 +26,8 @@ module Registry
 
     namespace(:import) do
       register(:creator, -> { Imports::Creator.new })
+      register(:eraser, -> { Imports::Eraser.new })
+      register(:deduper, -> { Imports::Deduper.new })
     end
 
     namespace(:lastfm) do

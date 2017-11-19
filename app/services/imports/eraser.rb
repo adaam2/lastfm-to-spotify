@@ -1,8 +1,9 @@
 module Imports
-  # Deletes all other imports pre-existent for a user
+  # Deletes all imports pre-existent for a user
   class Eraser
     def call(user)
-      user.imports.destroy_all
+      # We use delete_all here because there are no callbacks to care about.
+      user.imports.delete_all
     end
   end
 end

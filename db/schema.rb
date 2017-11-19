@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171119005606) do
+ActiveRecord::Schema.define(version: 20171119032651) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -108,7 +108,7 @@ ActiveRecord::Schema.define(version: 20171119005606) do
   end
 
   add_foreign_key "imports", "users"
-  add_foreign_key "imports_tracks", "imports"
+  add_foreign_key "imports_tracks", "imports", on_delete: :cascade
   add_foreign_key "imports_tracks", "tracks"
   add_foreign_key "playlists", "imports"
   add_foreign_key "tracks", "artists"
