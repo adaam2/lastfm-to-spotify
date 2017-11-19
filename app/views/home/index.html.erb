@@ -1,0 +1,11 @@
+<h1>
+  Get started
+</h1>
+
+<p>
+  Please connect your Last.fm and Spotify profiles below:
+</p>
+
+<% @services.each do |s| %>
+  <a href="<%= "/auth/#{s.downcase}" %>"><%= s.upcase %></a>
+<% end %>
