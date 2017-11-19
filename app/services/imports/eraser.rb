@@ -3,7 +3,7 @@ module Imports
   class Eraser
     def call(user)
       # We use delete_all here because there are no callbacks to care about.
-      user.imports.delete_all
+      user.imports.destroy_all
     end
   end
 end

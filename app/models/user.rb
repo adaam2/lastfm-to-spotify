@@ -5,6 +5,10 @@ class User < ApplicationRecord
 
   before_save :set_ready_for_import
 
+  scope :with_imports, -> {
+    joins(:imports).uniq
+  }
+
   def authenticated_externally?
     ready_for_import?
   end

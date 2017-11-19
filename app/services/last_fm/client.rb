@@ -15,7 +15,9 @@ module LastFm
 
       return [] unless chart
 
-      chart.map { |t| t.deep_symbolize_keys! }
+      chart
+        .map { |t| t.deep_symbolize_keys! }
+        .map { |t| LastFmTrack.from_json(t) }
     end
 
     private

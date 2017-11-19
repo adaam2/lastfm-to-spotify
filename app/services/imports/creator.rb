@@ -1,16 +1,18 @@
 module Imports
   class Creator
+    DEFAULT_NAME = "My Import".freeze
+
     include Registry::AutoInject[
       "import.eraser"
     ]
 
-    def call(user, name = "My import")
+    def call(user, &block)
       @user = user
 
-      clear_existing_imports
+      #clear_existing_imports
 
       import = user.imports.create!(
-        name: name
+        name: DEFAULT_NAME
       )
       yield import if block_given?
       import

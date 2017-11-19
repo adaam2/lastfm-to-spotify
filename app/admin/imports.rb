@@ -1,7 +1,10 @@
 ActiveAdmin.register Import do
+  filter :user, label: 'User', collection: proc { User.with_imports }
+
   index do
     column :id
     column :name
+    column :user
     column :number_of_tracks do |import|
       import.tracks.count
     end
