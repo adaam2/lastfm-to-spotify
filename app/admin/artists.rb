@@ -1,23 +1,11 @@
-ActiveAdmin.register Import do
-  index do
-    column :id
-    column :name
-    column :number_of_tracks do |import|
-      import.tracks.count
-    end
-    column :processed_fully do |import|
-      import.processed?
-    end
-    actions
-  end
-
+ActiveAdmin.register Artist do
   show do
-    panel "Main info" do
+    panel "Basic info" do
       default_main_content
     end
 
     panel "Tracks" do
-      tracks = import.tracks.preload(:artist).page(params[:page]).per(15).ordered
+      tracks = artist.tracks.page(params[:page]).per(15).ordered
 
       paginated_collection(tracks, download_links: false) do
         table_for(collection, sortable: false) do

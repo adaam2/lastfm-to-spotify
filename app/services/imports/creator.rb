@@ -7,6 +7,8 @@ module Imports
     def call(user, name = "My import")
       @user = user
 
+      clear_existing_imports
+
       import = user.imports.create!(
         name: name
       )
