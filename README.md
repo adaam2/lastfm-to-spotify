@@ -84,4 +84,5 @@ Access the admin area:
 localhost:3000/admin
 ```
 
+The admin user and password are in `db/seeds.rb`
 
