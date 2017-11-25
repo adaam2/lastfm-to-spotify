@@ -11,6 +11,12 @@ rbenv local 2.3.1
 
 Which sets the version of ruby for this folder to 2.3.1
 
+Install rails:
+
+```
+gem install rails
+```
+
 Then run bundler:
 
 ```
