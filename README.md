@@ -5,6 +5,7 @@ Install rbenv: https://github.com/rbenv/rbenv#installation
 Once installed, `cd` to the app directory. Then run:
 
 ```
+rbenv install 2.3.1
 rbenv local 2.3.1
 ```
 
