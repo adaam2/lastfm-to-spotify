@@ -76,6 +76,12 @@ Seed the database with admin users and other test data:
 rake db:seed
 ```
 
+Get a list of all of the registration routes in the application:
+
+```
+rake routes
+```
+
 # URLS
 
 Access the admin area:
