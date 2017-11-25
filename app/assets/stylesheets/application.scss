@@ -1,0 +1,29 @@
+@import "landing/landing";
+
+$main-font: 'Barlow Semi Condensed', sans-serif;
+
+body {
+  font-family: $main-font;
+}
+
+h1 {
+  font-size: 24px;
+}
+
+h2 {
+  font-size: 18px;
+}
+
+p, div, ul, a, section {
+  font-size: 18px;
+}
+
+p {
+  line-height: 1.2;
+}
+
+a {
+  text-decoration: none;
+  color: black;
+  padding: 5px 10px;
+}
