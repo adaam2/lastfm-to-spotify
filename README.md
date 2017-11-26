@@ -1,24 +1,94 @@
-# README
+# Set up
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Install rbenv: https://github.com/rbenv/rbenv#installation
 
-Things you may want to cover:
+Once installed, `cd` to the app directory. Then run:
 
-* Ruby version
+```
+rbenv install 2.3.1
+rbenv local 2.3.1
+```
 
-* System dependencies
+Which sets the version of ruby for this folder to 2.3.1
 
-* Configuration
+Install rails:
 
-* Database creation
+```
+gem install rails
+```
 
-* Database initialization
+Then run bundler:
 
-* How to run the test suite
+```
+bundle install
+```
 
-* Services (job queues, cache servers, search engines, etc.)
+Ensure the output of `rails -v` is 5+
 
-* Deployment instructions
+```
+rails -v
+=> Rails 5.1.3
+```
 
-* ...
+Then setup the app for the first time:
+
+```
+rails db:create
+rails db:migrate
+```
+
+Install foreman:
+
+```
+gem install foreman
+```
+
+Run the application with foreman:
+
+```
+foreman start -f Procfile.dev
+```
+
+This will run all of the various processes needed for the app (redis etc)
+
+Navigate to `localhost:3000`
+
+---
+
+# Some simple rails commands:
+
+Get a development console up, where you can play around with data and run database queries:
+
+```
+rails c
+```
+
+Update migrations to latest:
+
+```
+rails db:migrate
+```
+`rake` and `rails` are interchangeable
+
+Seed the database with admin users and other test data:
+
+```
+rake db:seed
+```
+
+Get a list of all of the registration routes in the application:
+
+```
+rake routes
+```
+
+# URLS
+
+Access the admin area:
+
+```
+localhost:3000/admin
+```
+
+The admin user and password are in `db/seeds.rb`
+
