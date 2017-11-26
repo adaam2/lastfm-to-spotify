@@ -1,9 +1,11 @@
 @import "landing/landing";
+@import "header/header";
 
 $main-font: 'Barlow Semi Condensed', sans-serif;
 
 body {
   font-family: $main-font;
+  margin: 0;
 }
 
 h1 {
@@ -26,4 +28,8 @@ a {
   text-decoration: none;
   color: black;
   padding: 5px 10px;
+}
+
+main {
+  padding: 1rem;
 }

@@ -3,6 +3,7 @@ module Registry
     extend Dry::Container::Mixin
 
     namespace(:connect) do
+      register(:guest_user, -> { GuestUser::Creator.new })
       register(:spotify, -> { Spotify::Connect.new })
       register(:lastfm, -> { LastFm::Connect.new })
     end

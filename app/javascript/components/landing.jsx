@@ -6,7 +6,7 @@ export default class Landing extends React.Component {
   services = () => {
     return _.map(this.props.services, (s) => {
       return (
-        <div className={ `service ${s}` }>
+        <div key={s} className={ `service ${s}` }>
           <a href={ `/auth/${s}` }>
             {s}
           </a>
@@ -18,13 +18,7 @@ export default class Landing extends React.Component {
   render() {
     return (
       <div>
-        <h1>
-          Get started
-        </h1>
-
-        <div>
-          {this.services()}
-        </div>
+        {this.services()}
       </div>
     );
   }

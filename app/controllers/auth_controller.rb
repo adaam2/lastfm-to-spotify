@@ -1,8 +1,13 @@
 class AuthController < ApplicationController
   include Registry::AutoInject[
     "connect.lastfm",
-    "connect.spotify"
+    "connect.spotify",
+    "connect.guest_user"
   ]
+
+  def create
+    @user = guest_user.call
+  end
 
   def callback
     current_user = User.first

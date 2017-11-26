@@ -1,0 +1,13 @@
+<h1>
+  Get started
+</h1>
+
+<p>
+  Please connect your Last.fm and Spotify profiles below:
+</p>
+
+<%= react_component("landing", { services: @services }) %>
+
+<script type="text/javascript">
+  window.__INITIAL_STATE__ = <%= @initial_state.html_safe %>
+</script>
