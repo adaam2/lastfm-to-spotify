@@ -54,4 +54,14 @@
   Please connect your Last.fm and Spotify profiles below:
 </p>
 
-<%= react_component("landing", { services: @services }) %>
+<%= react_component("landing", { services: @services, spotifyAuth: session["spotify_auth"].present?, lastfmAuth: session["lastfm_auth"].present? }) %>
+
+<script type="text/javascript">
+  window.__INITIAL_STATE__ = {
+    <% @services.each do |service| %>
+      <%= service %>: {
+        <%= session["#{service}_auth"].to_json %>
+      }
+    <% end %>
+  }
+</script>
