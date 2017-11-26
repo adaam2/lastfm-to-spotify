@@ -18,6 +18,10 @@ gem 'activeadmin', github: 'activeadmin'
 gem 'inherited_resources', github: 'activeadmin/inherited_resources'
 gem 'devise'
 gem 'kaminari'
+gem 'mocha', '~> 0.14.0'
+gem 'redis-store-testing'
+gem 'connection_pool', '~> 1.2.0'
+gem 'appraisal'
 
 # Configuration
 gem 'dotenv-rails'

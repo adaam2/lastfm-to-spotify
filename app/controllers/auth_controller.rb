@@ -6,7 +6,7 @@ class AuthController < ApplicationController
   ]
 
   def create
-    @user = guest_user.call
+    @user = guest_user.call(params)
   end
 
   def callback

@@ -32,6 +32,8 @@ class User < ApplicationRecord
       random_token = SecureRandom.urlsafe_base64(nil, false)
       break random_token unless User.exists?(token: random_token)
     end
+
+    self.token_generation_date = DateTime.current
   end
 
   def set_ready_for_import
