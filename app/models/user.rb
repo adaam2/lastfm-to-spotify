@@ -3,15 +3,13 @@ class User < ApplicationRecord
   has_many :imports_tracks
   has_many :tracks, through: :imports_tracks
 
-  before_validation :generate_token
+  before_create :generate_token
 
   before_save :set_ready_for_import
 
   scope :with_imports, -> {
     joins(:imports).uniq
   }
-
-  validates :token, presence: true
 
   def authenticated_externally?
     ready_for_import?

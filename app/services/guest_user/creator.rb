@@ -1,7 +1,7 @@
 module GuestUser
   class Creator
-    def call(metadata = {})
-      User.create!
+    def call(token:)
+      User.find_or_create_by!(token: token)
     end
   end
 end

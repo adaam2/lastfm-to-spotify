@@ -1,4 +1,21 @@
-a.service {
-  border: 1px solid black;
+.services {
+  display: flex;
+  max-width: 225px;
+  justify-content: space-between;
+}
+
+a.serviceConnectButton {
+  border: 3px solid black;
   border-radius: 5px;
+  padding: 6px 10px;
+  display: inline-flex;
+  justify-content: center;
+  align-content: center;
+  min-width: 80px;
+  background: white;
+
+  &:hover {
+    background: black;
+    color: white;
+  }
 }

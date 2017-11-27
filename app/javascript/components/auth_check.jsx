@@ -4,14 +4,12 @@ import PropTypes from 'prop-types';
 import _ from 'lodash';
 
 export default class AuthCheck extends React.Component {
-
-
   render() {
     if (LocalStorageService.hasKey("lastfmtospotify")) {
-      location.href = "/setup";
+      location.href = `/setup?token=${LocalStorageService.fetch("lastfmtospotify")}`;
     }
     else {
-      location.href = "/auth/create";
+      location.href = `/auth/create`;
     }
 
     return (

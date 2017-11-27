@@ -6,12 +6,10 @@ class AuthController < ApplicationController
   ]
 
   def create
-    @user = guest_user.call(params)
+    @user = current_user
   end
 
   def callback
-    current_user = User.first
-
     Rails.logger.info auth_object
 
     case provider
@@ -25,6 +23,10 @@ class AuthController < ApplicationController
   end
 
   private
+
+  def token
+    params.require(:token)
+  end
 
   def auth_object
     request.env["omniauth.auth"]
