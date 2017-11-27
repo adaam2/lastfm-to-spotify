@@ -5,7 +5,9 @@ Rails.application.routes.draw do
   # omniauth callbacks
   get '/auth/create', to: 'auth#create'
   get '/auth/:provider/callback', to: 'auth#callback'
-
+  post '/auth/connect', to: 'auth#connect_to_guest_user'
+  get '/complete', to: 'home#complete'
+  
   # Imports
   post 'imports/create', to: 'imports#create'
 

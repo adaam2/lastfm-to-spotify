@@ -1,6 +1,6 @@
 class ImportsController < ApplicationController
   def create
-    user = User.find_by!(permitted_params)
+    user = User.find_by!(token: permitted_params)
 
     if Rails.env.development?
       ImportJob

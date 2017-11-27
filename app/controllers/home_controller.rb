@@ -3,6 +3,10 @@ class HomeController < ApplicationController
 
   end
 
+  def complete
+
+  end
+
   def setup
     @services = %w[lastfm spotify]
     @initial_state = {

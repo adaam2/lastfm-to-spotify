@@ -19,3 +19,18 @@ a.serviceConnectButton {
     color: white;
   }
 }
+
+a.connected {
+  border: 3px solid green;
+  cursor: not-allowed;
+
+  &:hover {
+    background: initial;
+    color: initial;
+  }
+}
+
+.form {
+  display: block;
+  width: 100%;
+}

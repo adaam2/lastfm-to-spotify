@@ -11,6 +11,13 @@ class AuthController < ApplicationController
 
   def callback
     Rails.logger.info auth_object
+    @auth_object = auth_object.to_json.html_safe
+    @provider = provider
+  end
+
+  def connect_to_guest_user
+    params.permit!
+    current_user = guest_user.call(token: token)
 
     case provider
     when :spotify
@@ -25,11 +32,11 @@ class AuthController < ApplicationController
   private
 
   def token
-    params.require(:token)
+    params.require("authToken")
   end
 
   def auth_object
-    request.env["omniauth.auth"]
+    request.env["omniauth.auth"] || params.require(:authObject)
   end
 
   def provider
