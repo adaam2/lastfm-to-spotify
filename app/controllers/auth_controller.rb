@@ -5,41 +5,26 @@ class AuthController < ApplicationController
     "connect.guest_user"
   ]
 
-  def create
-    @user = current_user
+  def connect_to_guest_user
+    render json: current_user
   end
 
   def callback
-    Rails.logger.info auth_object
-    @auth_object = auth_object.to_json.html_safe
-    @provider = provider
-  end
-
-  def connect_to_guest_user
-    params.permit!
-    current_user = guest_user.call(token: token)
-
-    case provider
-    when :spotify
-      spotify.call(current_user, auth_object)
-    when :lastfm
-      lastfm.call(current_user, auth_object)
-    end
-
+    service(provider).call(current_user, auth_object)
     redirect_to :root
   end
 
   private
 
-  def token
-    params.require("authToken")
+  def service(provider)
+    Registry::Container["connect.#{provider}"]
   end
 
   def auth_object
-    request.env["omniauth.auth"] || params.require(:authObject)
+    request.env["omniauth.auth"]
   end
 
   def provider
-    params.require(:provider).to_sym
+    params.require(:provider)
   end
 end

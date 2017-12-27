@@ -1,0 +1,4 @@
+export const APP_LOAD = 'APP_LOAD';
+export const FETCH_USER = 'FETCH_USER';
+export const FETCH_USER_SUCCESS = 'FETCH_USER_SUCCESS';
+export const FETCH_USER_ERROR = 'FETCH_USER_ERROR';

@@ -8,9 +8,8 @@ end
 gem 'rails', '~> 5.1.4'
 gem 'pg', '~> 0.18'
 gem 'puma', '~> 3.7'
+gem 'webpacker', '~> 3.0'
 gem 'redis'
-gem 'webpacker'
-gem 'react-rails'
 gem 'sidekiq'
 gem 'httparty'
 gem 'rollbar'
@@ -18,10 +17,6 @@ gem 'activeadmin', github: 'activeadmin'
 gem 'inherited_resources', github: 'activeadmin/inherited_resources'
 gem 'devise'
 gem 'kaminari'
-gem 'mocha', '~> 0.14.0'
-gem 'redis-store-testing'
-gem 'connection_pool', '~> 1.2.0'
-gem 'appraisal'
 
 # Configuration
 gem 'dotenv-rails'
@@ -40,10 +35,8 @@ gem 'rspotify'
 group :test do
   gem 'rspec'
   gem 'rspec-rails', '~> 3.5'
-  gem 'rails-controller-testing'
   gem 'factory_girl_rails', '~> 4.7.0', require: false
   gem 'timecop'
-  gem 'webmock'
 end
 
 group :development, :test do
